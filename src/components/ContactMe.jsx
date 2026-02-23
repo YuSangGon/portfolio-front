@@ -21,7 +21,7 @@ export function ContactMe() {
 
     try {
       setLoading(true);
-      const res = await fetch(`${API_BASE}}/api/contact`, {
+      const res = await fetch(`${API_BASE}/api/contact`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
