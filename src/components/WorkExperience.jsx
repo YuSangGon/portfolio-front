@@ -172,7 +172,7 @@ export function WorkExperience() {
                 </div>
                 <div className="wx2Des">
                   {w.description.map((d) => {
-                    return <div>{d}</div>;
+                    return <div className="wx2DesItem">{d}</div>;
                   })}
                 </div>
               </div>
