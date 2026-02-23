@@ -1,0 +1,257 @@
+.edu {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  height: 100%;
+}
+
+.eduHeader {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.eduTitle {
+  font-size: 35px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.eduWrapper {
+  width: 100%;
+  display: flex;
+  align-items: stretch;
+  gap: 18px;
+
+  /* 중요: 자식 패널이 들어오면서 레이아웃이 밀리도록 */
+  overflow: hidden; /* 패널 슬라이드 시작 시 삐져나오는 부분 정리 */
+}
+
+.school {
+  margin-top: 10px;
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.degree {
+  font-size: 20px;
+  font-weight: 600;
+  color: #acaaaa;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.eduPeriod {
+  font-size: 20px;
+  font-weight: 600;
+  color: #acaaaa;
+}
+
+.eduLabel {
+  font-size: 8px;
+  fill: #acaaaa;
+  user-select: none;
+  font-weight: 600;
+}
+
+.eduMain {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.timeLineCard {
+  width: 100%;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.timeLineSvg {
+  width: min(65%, 700px);
+  display: inline-block;
+}
+
+.timeLinePath {
+  fill: none;
+  stroke: #acaaaa;
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+.edu-dot {
+  fill: rgba(12, 14, 20, 0.95);
+  stroke: rgba(255, 255, 255, 0.78);
+  stroke-width: 3;
+  filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.55));
+  transition:
+    transform 0.18s ease,
+    filter 0.18s ease,
+    fill 0.18s ease;
+}
+
+.circle-wrapper:not(:hover) .edu-pulse {
+  fill: none;
+  /*stroke: rgba(145,191,255,0.85);*/
+  /*stroke-width: 2;*/
+  transform-origin: center;
+  /*animation: pulse 2.8s ease-out infinite;*/
+  pointer-events: none;
+  stroke: rgba(170, 200, 255, 0.7);
+  stroke-width: 1.8;
+  animation: ambientPulse 3.6s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0% {
+    r: 6px;
+    opacity: 0.75;
+    stroke-width: 2;
+  }
+  70% {
+    r: 10px;
+    opacity: 0.42;
+    stroke-width: 1.5;
+  }
+  100% {
+    r: 12px;
+    opacity: 0;
+    stroke-width: 1;
+  }
+}
+
+@keyframes ambientPulse {
+  0%,
+  100% {
+    r: 7px;
+    opacity: 0.4;
+  }
+  50% {
+    r: 9px;
+    opacity: 0.65;
+  }
+}
+
+.circle-wrapper:hover .edu-pulse,
+.circle-wrapper.active .edu-pulse {
+  fill: none;
+  /*stroke: #fff;*/
+  stroke-width: 4;
+  transform-origin: center;
+  animation: pulse 2s ease-out infinite;
+  /*filter: blur(0.5px);*/
+  pointer-events: none;
+  stroke: rgba(170, 200, 255, 0.7);
+  animation-duration: 2s;
+}
+
+.circle-wrapper:hover > .eduLabel {
+  fill: rgba(170, 200, 255, 0.7);
+}
+
+/* overlay */
+.eduOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.64);
+  backdrop-filter: blur(8px);
+  animation: eduOverlayIn 0.18s ease-out;
+  z-index: 80;
+}
+@keyframes eduOverlayIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ✅ modal */
+.eduModal {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: min(740px, calc(100vw - 24px));
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  overflow: hidden;
+  z-index: 81;
+
+  /* ✅ 점 좌표를 기준으로 "스케일 팝" */
+  transform-origin: var(--ox) var(--oy);
+  animation: eduModalPop 1s cubic-bezier(0.2, 0.9, 0.2, 1);
+}
+
+@keyframes eduModalPop {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.78);
+    filter: blur(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    filter: blur(0);
+  }
+}
+
+.eduModalHeader {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 18px 18px 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.eduModalTitle {
+  margin: 0;
+  font-size: 28px;
+  letter-spacing: -0.01em;
+  color: rgba(255, 255, 255, 0.86);
+}
+.eduModalDesc {
+  margin: 6px 0 0;
+  color: #91bfff;
+  font-size: 18px;
+  line-height: 1.45;
+  font-weight: 600;
+  opacity: 0.7;
+}
+
+.eduModalClose {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.86);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    background 0.15s ease;
+}
+.eduModalClose:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.eduModalBody {
+  padding: 16px 18px 18px;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.edu-item {
+  margin: 5px 0;
+}

@@ -1,0 +1,273 @@
+.contentMain {
+    /*font-family: 'adobe-calson-pro', serif;*/
+    font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    color: white;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+
+    scrollbar-width: none;        /* Firefox */
+    -ms-overflow-style: none;     /* IE / Edge (legacy) */
+
+    background: -webkit-linear-gradient(to right, #000000, #434343);
+    background: linear-gradient(to right, #000000, #434343);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.contentMain::-webkit-scrollbar {
+    display: none;                /* Chrome, Safari */
+}
+
+.leftContent {
+    flex: 0 0 25%;
+    height: 90%;
+}
+
+.rightContent {
+    flex: 0 0 65%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.contentHeader {
+    width: 100%;
+    display: flex;
+    gap: 30px;
+}
+
+.mainWrapper {
+    width: 100%;
+    height: 90%;
+    overflow: scroll;
+    scroll-behavior: smooth;
+    scroll-snap-type: y proximity;
+}
+
+.mainWrapper::-webkit-scrollbar {
+    display: none;                /* Chrome, Safari */
+}
+
+.sectionBlock{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.sectionBlock{
+    scroll-snap-align: start;
+}
+
+.menuItem{
+    font-size: 20px;
+    font-weight: 600;
+    padding: 10px 20px;
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+    z-index: 0;
+    isolation: isolate;
+}
+
+.menuItem::after{
+    content: "";
+    position: absolute;
+    left: 6px;
+    right: 6px;
+    bottom: 10px;
+    height: 10px;
+    background: rgba(145,191,255,0.35);
+    border-radius: 6px;
+    z-index: -1;
+    transform-origin: left;
+}
+
+.menuItem.active::after{
+    transform: skew(-12deg);
+}
+
+.menuItem:not(.active)::after{
+    transform: scaleX(0) skew(-12deg);
+    transition: transform 0.18s ease-out;
+}
+
+.menuItem:not(.active):hover::after{
+    transform: scaleX(1) skew(-12deg);
+}
+
+.home {
+    display: flex;
+    justify-content: end;
+    align-items: start;
+    flex-direction: column;
+    height: 100%;
+    gap: 50px;
+    position: relative;
+}
+
+.hero{
+    padding: 50px 0;
+    color: rgba(255,255,255,.92);
+}
+
+.heroTitle{
+    margin: 0;
+    font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    font-weight: 500;
+    font-size: clamp(34px, 4.2vw, 54px);
+    letter-spacing: -0.02em;
+    line-height: 1.5;
+}
+
+.heroName{
+    position: relative;
+    display: inline-block;
+    isolation: isolate;
+    z-index: 0;
+}
+
+.heroName:after{
+    content:"";
+    position: absolute;
+    left: -6px;
+    right: -6px;
+    bottom: 34px;
+    height: 10px;
+    border-radius: 8px;
+    background: rgba(145,191,255,0.6);
+    transform: scaleX(0) skew(-10deg);
+    transform-origin: left;
+    z-index: -1;
+    animation: highlightIn 820ms ease-out 420ms forwards;
+    filter: blur(0.2px);
+}
+
+@keyframes highlightIn{
+    to { transform: scaleX(1) skew(-10deg); }
+}
+
+.signature{
+    font-family: "Great Vibes", cursive;
+    font-weight: 400;
+    font-size: clamp(46px, 5.2vw, 72px);
+    letter-spacing: 0.02em;
+    position: relative;
+    top: 4px;
+    text-shadow:
+            0 0 10px rgba(170,200,255,0.28),
+            0 0 26px rgba(170,200,255,0.12);
+}
+
+.javaAccent {
+    font-family: "Great Vibes", cursive;
+    color: #AAC8FF;
+    font-weight: 400;
+    font-size: clamp(46px, 5.2vw, 72px);
+    letter-spacing: 0.02em;
+    position: relative;
+    top: 4px;
+}
+
+.homeFooter {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.homeFooter > button {
+    font-size: 20px;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: #1c1c1c;
+    color: rgba(255,255,255,.68);
+    scale: 0.95;
+}
+
+.homeFooter > button:hover {
+    color: rgba(170,200,255,0.7);
+    scale: 1;
+    border-color: rgba(170,200,255,0.7);
+}
+
+.homeFooter > button a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.scrollDownIcon {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+.scrollIndicator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.scrollCircle {
+    position: relative;
+    width: 180px;
+    height: 180px;
+}
+
+/* 원형 텍스트 */
+.circleText {
+    width: 100%;
+    height: 100%;
+    fill: rgba(255,255,255,0.6);
+    font-size: 14px;
+    letter-spacing: 2px;
+    font-weight: 600;
+    animation: rotateCircle 12s linear infinite;
+}
+
+@keyframes rotateCircle {
+    from { transform: rotate(360deg); }
+    to   { transform: rotate(0deg); }
+}
+
+/* 가운데 스크롤 아이콘 */
+.scrollIcon {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 마우스 모양 */
+.mouse {
+    width: 26px;
+    height: 42px;
+    border: 2px solid rgba(170,200,255,0.7);
+    border-radius: 20px;
+    position: relative;
+}
+
+.wheel {
+    width: 4px;
+    height: 8px;
+    background: rgba(170,200,255,0.9);
+    border-radius: 2px;
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: scrollWheel 1.6s ease-in-out infinite;
+}
+
+@keyframes scrollWheel {
+    0%   { top: 8px; opacity: 1; }
+    50%  { top: 18px; opacity: 0.5; }
+    100% { top: 8px; opacity: 1; }
+}

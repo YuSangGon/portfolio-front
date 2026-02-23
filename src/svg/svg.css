@@ -1,0 +1,23 @@
+@keyframes scroll {
+    0% {
+        transform: translateY(0);
+    }
+    30% {
+        transform: translateY(100px);
+    }
+}
+
+svg #wheel {
+    animation: scroll ease 1.5s infinite;
+}
+
+
+*,
+*::before,
+*::after {
+   box-sizing: border-box;
+   -webkit-backface-visibility: hidden;
+   -webkit-transform-style: preserve-3d;
+}
+
+

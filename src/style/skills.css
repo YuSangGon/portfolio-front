@@ -1,0 +1,139 @@
+.skill {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 18px;
+}
+
+.skillHeader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.skillTitle {
+    font-size: 34px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+/* wrapper */
+.skill-main {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* table */
+.skill-table {
+    width: min(900px, 92%);
+    border-collapse: collapse;
+}
+
+/* row separators (더 은은하게) */
+.skill-table tr:not(:last-child) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+/* category column */
+.skill-category {
+    width: 22%;
+    padding: 18px 14px;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: rgba(255,255,255,0.82);
+    border-right: 1px solid rgba(255, 255, 255, 0.10);
+    vertical-align: center;
+    position: relative;
+}
+
+.skill-iconWrap svg{
+    filter: saturate(.95) brightness(.95);
+}
+
+/* items cell */
+.skill-items {
+    padding: 14px 14px;
+}
+
+/* ✅ 테이블 안에서는 td에 flex 직접 주기보다 inner에 주는게 안정적 */
+.skill-itemsInner{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* card */
+.skill-item {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 80px;
+    border-radius: 16px;
+    padding: 10px;
+
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    transition: transform 160ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.skill-item:hover{
+    transform: translateY(-1px);
+    border-color: rgba(145,191,255,0.22);
+}
+
+.skill-item:hover .skill-iconWrap{
+    background: rgba(145,191,255,0.12);
+    border-color: rgba(145,191,255,0.25);
+}
+
+/* ✅ 아이콘 크기 통일 프레임 */
+.skill-iconWrap{
+    width: 60px;
+    height: 60px;
+    display: grid;
+    place-items: center;
+    flex: 0 0 28px;
+
+    border-radius: 10px;
+    background: rgba(255,255,255,0.03);
+    /*border: 1px solid rgba(255,255,255,0.06);*/
+    padding: 10px;
+}
+
+/* ✅ 네 SVG 컴포넌트가 <svg>를 리턴하니까 이걸로 강제 통일 */
+.skill-iconWrap svg{
+    width: 40px;
+    height: 40px;
+    display: block;
+}
+
+/* flag-icons도 크기 통일 */
+.skill-iconWrap .fi{
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.10) inset;
+}
+
+/* name */
+.skill-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.65);
+    line-height: 1;
+    white-space: nowrap;
+}
+
+/* 모바일/좁은 화면에서 category 폭 줄이기 */
+@media (max-width: 720px){
+    .skill-category{ width: 30%; font-size: 14px; }
+    .skill-name{ font-size: 12px; }
+}

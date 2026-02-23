@@ -1,0 +1,236 @@
+.work {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.workHeader {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+}
+
+.workTitle {
+    font-size: 35px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.toggleWrapper {
+    display: flex;
+    justify-content: end;
+}
+
+.workToggle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+}
+
+.workToggle span {
+    opacity: 0.6;
+    transition: opacity 0.2s ease;
+}
+
+.workToggle span.active {
+    opacity: 1;
+    color: #91bfff;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 42px;
+    height: 22px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255,255,0.12);
+    border-radius: 999px;
+    transition: 0.25s;
+}
+
+.slider::before {
+    content: "";
+    position: absolute;
+    height: 16px;
+    width: 16px;
+    left: 3px;
+    bottom: 3px;
+    background: white;
+    border-radius: 50%;
+    transition: 0.25s;
+}
+
+/* 체크되면 */
+.switch input:checked + .slider {
+    background: rgba(145,191,255,0.5);
+}
+
+.switch input:checked + .slider::before {
+    transform: translateX(20px);
+}
+
+.wx2{
+    width: 100%;
+    padding: 10px;
+    color: rgba(255,255,255,.9);
+}
+.wx2Header{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+.wx2Title{
+    margin:0;
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+.wx2Sub{
+    margin:0;
+    color: rgba(255,255,255,.55);
+    font-size: 14px;
+}
+
+/* ====== RAIL ====== */
+.wx2Rail{
+    display:flex;
+    align-items:center;
+    gap: 18px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 12px calc(50% - 160px) 18px;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: calc(50% - 160px);
+}
+.wx2Rail::-webkit-scrollbar{ display:none; }
+
+/* ====== CARD ====== */
+.wx2Card{
+    flex: 0 0 450px;
+    height: 500px;
+    border-radius: 22px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background-color: #1c1c1c;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+
+    text-align: left;
+    padding: 16px 16px;
+    cursor: pointer;
+
+    /* 흐릿 카드 기본 상태 */
+    opacity: .35;
+    filter: blur(1.4px) saturate(.9);
+    transform: scale(.94);
+
+    transition:
+            transform 260ms cubic-bezier(.2,.9,.2,1),
+            opacity 220ms ease,
+            filter 220ms ease,
+            border-color 240ms ease;
+}
+
+.wx2Card:hover{
+    opacity: .6;
+    filter: blur(.8px) saturate(1);
+    transform: scale(.965);
+}
+
+/* 중앙(활성) 카드 */
+.wx2Card.active{
+    opacity: 1;
+    filter: blur(0) saturate(1);
+    transform: scale(1);
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.wx2Company{
+    color: #fff;
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+.wx2Role{
+    margin-top: 6px;
+    font-size: 16px;
+    color: #91bfff;
+    font-weight: 600;
+}
+.wx2Loc{
+    margin-top: 6px;
+    font-size: 16px;
+    color: rgba(255,255,255,.68);
+    font-weight: 600;
+}
+.locIcon {
+    color: red;
+}
+/* ====== DETAILS ====== */
+.wx2Detail{
+    margin-top: 10px;
+    border-radius: 22px;
+    border: 1px solid rgba(255,255,255,.08);
+    background: rgba(255,255,255,.03);
+    padding: 16px 16px 18px;
+    color: rgba(255,255,255,.68);
+    height: 65%;
+    overflow: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.wx2Period{
+    width: 100%;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:14px;
+    font-weight: 600;
+}
+
+.wx2Period span{
+    white-space: nowrap;
+}
+
+/* 가운데 dot line */
+.wx2Period::before{
+    content:"";
+    flex:1;
+    height:4px;                 /* ✅ 2px → 4px */
+    align-self:center;
+    margin: 0 6px;
+    order: 1;
+
+    /* ✅ 점이 확실히 보이게 */
+    background-image: radial-gradient(circle, rgba(255,255,255,0.38) 1.2px, transparent 1.3px);
+    background-size: 8px 4px;   /* ✅ 간격/높이 */
+    background-repeat: repeat-x;
+    background-position: center;
+}
+
+/* 순서 재배치 */
+.wx2Period span:first-child { order: 0; }
+.wx2Period span:last-child { order: 2; }
+
+.wx2Des {
+    margin-top: 10px;
+    font-size: 14px;
+}

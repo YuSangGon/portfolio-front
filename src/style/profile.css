@@ -1,0 +1,107 @@
+.meWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    flex-direction: column;
+    background: #080A10;
+    border: 1px solid rgba(255,255,255,0.12);
+    box-shadow:
+            0 0 0 1px rgba(255,255,255,0.03) inset,
+            0 20px 60px rgba(0,0,0,0.6);
+    border-radius: 30px;
+    height: 100%;
+}
+
+.meHeader, .meMain, .meFooter {
+    width: 70%;
+}
+
+.meHeader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-direction: column;
+}
+
+.meMain {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-direction: column;
+}
+
+.meName, .meImg, .mePosition, .meLocation {
+    width: 100%;
+}
+
+.meName {
+    display: flex;
+    justify-content: start;
+    align-items: stretch;
+}
+
+.nameLogo {
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.meName {
+    font-size: 30px;
+    font-weight: 700;
+    text-align: left;
+}
+
+.mainPos, .mainLoc {
+    font-size: 20px;
+    font-weight: 600;
+    text-align: left;
+}
+
+.subTitle {
+    font-size: 20px;
+    font-weight: 400;
+}
+
+#mePhoto {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius : 20px;
+    object-fit: cover;
+}
+
+.meFooter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+    gap: 20px;
+}
+
+.meFIcon {
+    background: #111418;
+    border: 1px solid rgba(255,255,255,0.12);
+    box-shadow:
+            0 0 0 1px rgba(255,255,255,0.03) inset,
+            0 20px 60px rgba(0,0,0,0.6);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.meFIcon:hover {
+    background: rgba(145,191,255,0.35);
+    transform: translateY(-1px);
+}
+
+
+

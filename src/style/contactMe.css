@@ -1,0 +1,154 @@
+.contact {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cHeader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.cHeader:after {
+    position: absolute;
+    content: "";
+    width: 150px;
+    height: 1px;
+    border: 2px solid white;
+    bottom: -20px;
+}
+
+.cTitle {
+    font-size: 35px;
+    font-weight: 600;
+}
+
+.cSubHeader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.cSubTitle {
+    font-size: 20px;
+    color : rgba(145,191,255);
+    font-weight: 600;
+}
+
+/* 전체 2컬럼 */
+.cBody {
+    width: 100%;
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 30px;
+    position: relative;
+}
+
+.cLeft, .cRight {
+    width: 40%;
+    height: 100%;
+}
+
+/* 왼쪽 폼 */
+.contactForm, .etcBox {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+.formRow {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.formRow input,
+.formRow textarea {
+    padding: 10px 12px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: white;
+    font-size: 15px;
+}
+
+/* 보내기 버튼 */
+.sendBtn {
+    font-size: 20px;
+    margin-top: 6px;
+    padding: 10px 16px;
+    border-radius: 999px;
+    background: rgba(145,191,255,0.25);
+    border: 1px solid rgba(145,191,255,0.6);
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: 600;
+}
+
+.sendBtn:hover {
+    background: rgba(145,191,255,0.35);
+    transform: translateY(-1px);
+}
+
+/* 오른쪽 패널 */
+.cRight {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+}
+
+.etcBox {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.boxTitle {
+    font-size: 21px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.statusLine, .quickList, .tagList {
+    font-size: 20px;
+}
+
+.statusLine {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.statusDot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.statusDot.green {
+    background: #4ade80;
+}
+
+.quickList {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
