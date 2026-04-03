@@ -103,29 +103,6 @@ export function Projects() {
     };
   }, []);
 
-  // useEffect(() => {
-  //   const scroller = scrollerRef.current;
-  //   if (!scroller) return;
-
-  //   const onWheel = (e) => {
-  //     // shift 없이도 자연스럽게 가로 이동
-  //     if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
-  //       scroller.scrollLeft += e.deltaY;
-  //       e.preventDefault();
-  //     }
-  //   };
-
-  //   scroller.addEventListener("wheel", onWheel, { passive: false });
-  //   return () => scroller.removeEventListener("wheel", onWheel);
-  // }, []);
-
-  // useEffect(() => {
-  //     if (activeIndex >= filtered.length) setActiveIndex(0);
-  //     // 토글 때 ref 배열도 초기화
-  //     cardRefs.current = [];
-  //     // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [filtered.length]);
-
   return (
     <div className="project">
       <div className="projectHeader">
