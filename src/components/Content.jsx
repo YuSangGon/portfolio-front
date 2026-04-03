@@ -6,6 +6,7 @@ import { ContactMe } from "./ContactMe";
 import { Home } from "./Home";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Skills } from "./Skills";
+import { Projects } from "./Projects";
 
 export function Content() {
   const scrollerRef = useRef(null);
@@ -16,13 +17,14 @@ export function Content() {
   const expRef = useRef(null);
   const skillRef = useRef(null);
   const contactRef = useRef(null);
-  // const projRef = useRef(null);
+  const projRef = useRef(null);
 
   const sections = useMemo(
     () => [
       { key: "home", label: "Home", ref: homeRef },
       { key: "education", label: "Education", ref: eduRef },
       { key: "experience", label: "Experience", ref: expRef },
+      { key: "projects", label: "Projects", ref: projRef },
       { key: "skill", label: "Skills", ref: skillRef },
       { key: "contact", label: "Contact", ref: contactRef },
     ],
@@ -123,9 +125,13 @@ export function Content() {
           >
             <WorkExperience />
           </section>
-          {/*<section ref={projRef} data-section-key="experience" className="sectionBlock">*/}
-          {/*    <PersonalProject />*/}
-          {/*</section>*/}
+          <section
+            ref={projRef}
+            data-section-key="projects"
+            className="sectionBlock"
+          >
+            <Projects />
+          </section>
           <section
             ref={skillRef}
             data-section-key="skill"
