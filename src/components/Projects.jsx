@@ -35,7 +35,7 @@ export function Projects() {
   };
 
   // 카드 중앙 정렬 스크롤
-  const scrollToIndex = (idx) => {
+  const scrollToIndex = (idx, behavior = "smooth") => {
     const scroller = scrollerRef.current;
     const el = cardRefs.current[idx];
     if (!scroller || !el) return;
@@ -47,9 +47,10 @@ export function Projects() {
     const eCenter = eRect.left + eRect.width / 2;
 
     const delta = eCenter - sCenter;
+
     scroller.scrollTo({
       left: scroller.scrollLeft + delta,
-      behavior: "smooth",
+      behavior,
     });
   };
 
@@ -67,11 +68,15 @@ export function Projects() {
     };
 
     scroller.addEventListener("scroll", onScroll, { passive: true });
-    // 초기 한 번
-    setActiveIndex(nearestIndex());
+
+    const init = requestAnimationFrame(() => {
+      setActiveIndex(0);
+      scrollToIndex(0, "auto");
+    });
 
     return () => {
       cancelAnimationFrame(raf);
+      cancelAnimationFrame(init);
       scroller.removeEventListener("scroll", onScroll);
     };
   }, []);

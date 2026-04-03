@@ -38,7 +38,7 @@ export function WorkExperience() {
   };
 
   // 카드 중앙 정렬 스크롤
-  const scrollToIndex = (idx) => {
+  const scrollToIndex = (idx, behavior = "smooth") => {
     const scroller = scrollerRef.current;
     const el = cardRefs.current[idx];
     if (!scroller || !el) return;
@@ -50,9 +50,10 @@ export function WorkExperience() {
     const eCenter = eRect.left + eRect.width / 2;
 
     const delta = eCenter - sCenter;
+
     scroller.scrollTo({
       left: scroller.scrollLeft + delta,
-      behavior: "smooth",
+      behavior,
     });
   };
 
@@ -70,11 +71,15 @@ export function WorkExperience() {
     };
 
     scroller.addEventListener("scroll", onScroll, { passive: true });
-    // 초기 한 번
-    setActiveIndex(nearestIndex());
+
+    const init = requestAnimationFrame(() => {
+      setActiveIndex(0);
+      scrollToIndex(0, "auto");
+    });
 
     return () => {
       cancelAnimationFrame(raf);
+      cancelAnimationFrame(init);
       scroller.removeEventListener("scroll", onScroll);
     };
   }, []);
@@ -101,33 +106,9 @@ export function WorkExperience() {
     };
   }, []);
 
-  // 세로 휠을 가로 스크롤로 변환(데스크탑 UX 좋음)
-  // useEffect(() => {
-  //     const scroller = scrollerRef.current;
-  //     if (!scroller) return;
-  //
-  //     const onWheel = (e) => {
-  //         // shift 없이도 자연스럽게 가로 이동
-  //         if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
-  //             scroller.scrollLeft += e.deltaY;
-  //             e.preventDefault();
-  //         }
-  //     };
-  //
-  //     scroller.addEventListener("wheel", onWheel, { passive: false });
-  //     return () => scroller.removeEventListener("wheel", onWheel);
-  // }, []);
-
   const filtered = useMemo(() => {
     return showWebOnly ? workList.filter((w) => w.isDev) : workList;
   }, [showWebOnly]);
-
-  // useEffect(() => {
-  //     if (activeIndex >= filtered.length) setActiveIndex(0);
-  //     // 토글 때 ref 배열도 초기화
-  //     cardRefs.current = [];
-  //     // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [filtered.length]);
 
   return (
     <div className="work">
