@@ -11,7 +11,7 @@ export const projectList = [
       "Focused on building a real-world service with complex workflows rather than a simple CRUD application.",
     ],
     startDate: "10 Mar 2026",
-    endDate: "03 Apr 2026",
+    endDate: "current",
     githubUrl: "https://github.com/YuSangGon/planmate-front",
     liveUrl: "https://planmate-front.onrender.com",
   },
